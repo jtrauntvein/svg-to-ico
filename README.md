@@ -6,7 +6,7 @@ and then it will combine these into an .ico format (such as is used by favicon.i
 The easiest way to run the utility is to install it globally:
 
 ```
-npm install -g svg-to-ico
+npm install -g @jtrauntvein/svg-to-ico
 ```
 
 Once installed, the utility can be run as follows:
