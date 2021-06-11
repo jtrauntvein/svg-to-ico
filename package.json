@@ -1,6 +1,6 @@
 {
   "name": "svg-to-ico",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Utility that translates an SVG Image to a .ico format",
   "main": "svg-to-ico.js",
   "bin": {
