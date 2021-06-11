@@ -24,10 +24,10 @@
   "homepage": "https://github.com/jtrauntvein/svg-to-ico.git/svg-to-ico#readme",
   "dependencies": {
     "png-to-ico": "^2.1.2",
-    "svgexport": "^0.4.2"
-  },
-  "devDependencies": {
-    "eslint": "^7.27.0",
+    "svgexport": "^0.4.2",
     "uuid": "^8.3.2"
+},
+  "devDependencies": {
+    "eslint": "^7.27.0"
   }
 }
