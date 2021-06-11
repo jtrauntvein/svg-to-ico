@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const svg_to_ico = require("../svg-to-ico");
+const svg_to_ico = require("./svg-to-ico");
 const path = require("path");
 
 async function do_convert()

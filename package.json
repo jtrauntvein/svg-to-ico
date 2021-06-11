@@ -1,13 +1,13 @@
 {
   "name": "svg-to-ico",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Utility that translates an SVG Image to a .ico format",
   "main": "svg-to-ico.js",
   "bin": {
-    "svg-to-ico": "./bin/index.js"
+    "svg-to-ico": "index.js"
   },
   "scripts": {
-    "test": "node bin/index.js koala.svg"
+    "test": "node index.js koala.svg"
   },
   "repository": {
     "type": "git",
