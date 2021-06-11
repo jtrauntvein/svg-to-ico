@@ -1,9 +1,8 @@
-const tmp = require("tmp");
 const fs = require("fs");
 const path = require("path");
-const svg2img = require("svg2img");
+const svgexport = require("svgexport");
 const png_to_ico = require("png-to-ico");
-
+const { v4: uuidv4 } = require("uuid");
 
 /**
  * @return Returns a promise that performs the conversion operation.
@@ -15,11 +14,12 @@ const png_to_ico = require("png-to-ico");
 async function svg_to_ico({
    input_name,
    output_name = "favicon.ico",
-   sizes = [ 16, 32, 48, 64, 128 ]
+   sizes = [ 16, 32, 48, 64, 128, 256 ]
 })
 {
    return new Promise((accept, reject) => {
-      const scratch_dir = tmp.dirSync().name;
+      const scratch_dir = path.join(process.cwd(), uuidv4());
+      fs.mkdirSync(scratch_dir);
       const do_close = (error) => { 
          fs.rm(scratch_dir, { recursive: true }, () => {
             if(error)
@@ -28,42 +28,24 @@ async function svg_to_ico({
                accept(output_name);
          });
       };
-      const png_files = sizes.map((size) => {
-         const png_name = path.join(scratch_dir, `ico${size}.png`);
+      const png_names = sizes.map((size) => { return path.join(scratch_dir, `ico${size}.png`); });
+      const png_files = png_names.map((png_name, index) => {
          return {
-            name: png_name,
-            converter: new Promise((svg_accept, svg_reject) => {
-               svg2img(input_name, { 
-                  format: "png", 
-                  preserveAspectRatio: true,
-                  width: size,
-                  height: size 
-               },
-               (svg_error, buffer) => {
-                  if(svg_error)
-                     svg_reject(svg_error);
-                  else
-                  {
-                     fs.writeFileSync(png_name, buffer);
-                     svg_accept(png_name);
-                  }
-               })
-            })
+            "input": input_name,
+            "output": `${png_name}  png ${sizes[index]}:`
          };
       });
-      const png_promises = png_files.map((file) => { return file.converter; });
-      Promise.all(png_promises).then(() => {
-         const png_names = png_files.map((file) => { return file.name; });
+      svgexport.render(png_files, () => {
          png_to_ico(png_names).then((ico_buff) => {
             fs.writeFile(output_name, ico_buff, (file_error) => {
                if(file_error)
                   do_close(file_error);
                else
                   do_close();
-            })
+            });
          }).catch((error) => {
             do_close(error);
-         })
+         });
       }).catch((error) => {
          do_close(error);
       });
