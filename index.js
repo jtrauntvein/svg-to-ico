@@ -14,6 +14,8 @@ async function do_convert()
          // parse the command line arguments.
          const input_name = process.argv[2];
          let output_name = path.join(process.cwd(), "favicon.ico");
+         if(process.argv.length >= 4)
+            output_name = process.argv[3];
          svg_to_ico({ input_name: input_name, output_name: output_name }).then(() => {
             accept();
          }).catch((error) => {
