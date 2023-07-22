@@ -1,6 +1,6 @@
 {
   "name": "svg-to-ico",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Utility that translates an SVG Image to a .ico format",
   "main": "svg-to-ico.js",
   "bin": {
@@ -24,10 +24,10 @@
   "license": "MIT",
   "homepage": "https://github.com/jtrauntvein/svg-to-ico.git/svg-to-ico#readme",
   "dependencies": {
-    "sharp": "^0.31.3",
+    "sharp": "^0.32.4",
     "to-ico": "^1.0.1"
   },
   "devDependencies": {
-    "eslint": "^8.33.0"
+    "eslint": "^8.45.0"
   }
 }
