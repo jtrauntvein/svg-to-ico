@@ -1,6 +1,5 @@
-const fsp = require("fs/promises");
 const sharp = require("sharp");
-const to_icon = require("to-ico");
+const { png_to_ico } = require("./png-to-ico.js");
 
 /**
  * @return Returns a promise that performs the conversion operation.
@@ -27,15 +26,11 @@ async function svg_to_ico({
          });
       });
       Promise.all(output_promises).then((buffers) => {
-         to_icon(buffers).then((output_buffer) => {
-            fsp.writeFile(output_name, output_buffer).then(() => {
-               accept(output_name);
-            }).catch((error) => {
-               reject(error);
-            });
+         png_to_ico(output_name, buffers).then(() => {
+            accept(output_name);
          }).catch((error) => {
-            reject(error);
-         })
+            reject(error)
+         });
       });
    });
 }
