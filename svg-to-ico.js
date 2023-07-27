@@ -1,6 +1,6 @@
-const fsp = require("fs/promises");
+const fs = require("fs");
 const sharp = require("sharp");
-const to_icon = require("to-ico");
+const { encode } = require("ico-endec");
 
 /**
  * @return Returns a promise that performs the conversion operation.
@@ -27,15 +27,10 @@ async function svg_to_ico({
          });
       });
       Promise.all(output_promises).then((buffers) => {
-         to_icon(buffers).then((output_buffer) => {
-            fsp.writeFile(output_name, output_buffer).then(() => {
-               accept(output_name);
-            }).catch((error) => {
-               reject(error);
-            });
-         }).catch((error) => {
-            reject(error);
-         })
+         const ico_buffer = encode(buffers);
+         fs.promises.writeFile(output_name, ico_buffer)
+            .then(() => accept())
+            .catch((error) => reject(error));
       });
    });
 }
