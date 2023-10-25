@@ -31,8 +31,8 @@ async function that accepts the following named parameters:
 ### Example
 
 ```
-const svg_to_img = require("svg-to-img");
-svg_to_img({
+const svg_to_img = require("svg-to-ico");
+svg_to_ico({
    input_name: "koala.svg",
    output_name: "koala.ico",
    sizes: [ 16, 24, 32, 64 ]
