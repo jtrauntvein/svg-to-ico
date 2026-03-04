@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "esModuleInterop": true,
+    "noEmit": true,
+    "strict": true
+  }
+}
