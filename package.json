@@ -8,6 +8,7 @@
     "svg-to-ico": "index.js"
   },
   "scripts": {
+    "lint": "eslint .",
     "test": "node index.js koala.svg",
     "test2": "node index.js logview.svg logview.ico"
   },
@@ -31,6 +32,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.3",
     "eslint": "^9.39.3",
+    "jiti": "^2.6.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.1"
   }
