@@ -1,3 +1,9 @@
+# Node files
 node_modules/
+
+# IDE Files
+.idea/
 .vscode/
+
+# Artifacts
 favicon.ico

@@ -1,0 +1,31 @@
+# Development dependencies
+node_modules/
+.yarn/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Git files
+.git/
+.gitignore
+
+# Build and test files
+eslint.config.ts
+tsconfig.json
+.eslintignore
+
+# Development test files
+koala.svg
+logview.svg
+logview.ico
+scripts/
+
+# Configuration and metadata
+.npmignore
+
+# CI/CD
+.github/
