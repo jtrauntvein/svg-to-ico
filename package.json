@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jtrauntvein/svg-to-ico.git"
+    "url": "git+https://github.com/jtrauntvein/svg-to-ico.git"
   },
   "keywords": [
     "svg",
