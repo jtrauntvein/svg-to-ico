@@ -1,6 +1,6 @@
 {
   "name": "svg-to-ico",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Utility that translates an SVG Image to a .ico format",
   "main": "svg-to-ico.js",
   "types": "svg-to-ico.d.ts",
@@ -30,8 +30,8 @@
     "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.3",
-    "eslint": "^9.39.3",
+    "@eslint/js": "^9.39.4",
+    "eslint": "^9.39.4",
     "jiti": "^2.6.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.1"
